@@ -52,7 +52,7 @@ west build --board nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753
 ```
 or
 ```
-west build -b nucleo_h755zi_q/stm32h755xx/m7 -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
+west build -b nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
 ```
 
 
