@@ -28,7 +28,7 @@ or as CMake hints.
 
 ### Conditional Compilation
 
-Conditional compolation is what makes kernel config such a powerful tool. CMake
+Conditional compilation is what makes kernel config such a powerful tool. CMake
 can conditionally include source files, libraries, and directories depending on
 whether or not a preprocessor macro is set, allowing your Kconfig options to
 control CMake. Furthermore, devicetree can create and set new options based on
