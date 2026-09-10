@@ -89,7 +89,7 @@ build` wraps CMake, and we'll look into the other in a later section (`west flas
 The build subcommand is almost like an alias for a long and complicated CMake
 command. It knows our zephyr path, and allows us to specify board and
 application. We'll piece it together bit by bit during the course, but the final
-command will be `west build -b nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay`.
+command will be `west build -b nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay` 
 or `west build -b nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay`
 
 > [!NOTE]
