@@ -2,7 +2,7 @@
 
 This repository contains both the course material and the finished blinky application. The application is meant as a reference in case of issues, *not* a replacement for following the course!
 
-The course begins at [[Course/0_overview.md]]!
+The course begins at [overview](Course/0_overview.md)
 
 The blinky application can be moved to your zephyr workspace and built with
 `west build -b nucleo_h753zi Blinky --
