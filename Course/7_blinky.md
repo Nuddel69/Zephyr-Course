@@ -6,10 +6,10 @@ Congratulations, you've written your first zephyr application, from scratch! If
 you wish, you may attempt to build your application now, using the information
 scattered throughout the previous sections of this course. There is, however,
 one glaring flaw in our application. Our first line *relies* on there existing
-a node called `red_led`. This defeats the entire point of separating the
+a node called `green_led`. This defeats the entire point of separating the
 hardware from the application, as the application now depends on one particular
-led being connected. Instead, we would like to use what's called an alias. The
-application declares that it's referring to an LED called `led0`, and the
+led being connected. Instead, we would like to use what's called an alias. To do this, we will have the
+application declare that it's referring to an LED called `led0`, and the
 devicetree is responsible for deciding what LED gets this alias. This is highly project specific, and thus illadviced to add to the global board definition. Instead, we'll make an overlay.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ devicetree is responsible for deciding what LED gets this alias. This is highly 
 > ### Intermission - a Slight Adjustment, Adding the Overlay
 >
 > Start by adding a new file in your applications `boards/` directory and call
-> it `nucleo_h753zi.overlay`. This file will override the global board, and
+> it `nucleo_h753zi.overlay` or `nucleo_h755zi_q_stm32h755x_m7.overlay` . This file will override the global board, and
 > such we only need to specify what we wish to change.
 >
 > Aliases are part of the root node in the devicetree, so we'll specify this,
@@ -26,7 +26,7 @@ devicetree is responsible for deciding what LED gets this alias. This is highly 
 > ```
 > / {
 >  aliases {
->   led0 = &red_led;
+>   led0 = &green_led;
 >  };
 > };
 > ```
@@ -50,6 +50,11 @@ Now that you've got a finished, truly portable blinky, it's time to compile it! 
 ```
 west build --board nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay
 ```
+or
+```
+west build -b nucleo_h755zi_q/stm32h755xx/m7 -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
+```
+
 
 If everything compiles, you're ready to flash! Again using `west`, supply the runner (stm32cubeprogrammer should be automatically detected) and connect your board!
 
