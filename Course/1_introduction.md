@@ -11,7 +11,9 @@ environmental and inertial measurement to command reception and mission status.
 The actuators include ADCS and heating, as well as beacons and comms. The end
 goal will always be to produce the correct actuation, based on a given sense.
 
-> [!NOTE] Intermission - Workspace setup and blinky demonstration
+> [!NOTE]
+>
+> ### Intermission - Workspace Setup and Blinky Demonstration
 >
 > During the course of this… course we will develop a very simple application -
 > the blinky. A staple in the world of embedded programming, this simple
@@ -58,7 +60,9 @@ every *n* seconds/milliseconds and the RTOS will manage it for us.
 
 ## Our (Programming) Language of Choice
 
-> [!WARNING] FIXME:
+> [!WARNING]
+>
+> ### FIXME
 >
 > This section either needs a lot of work, or should be
 > dropped all together
@@ -111,7 +115,9 @@ You might wonder how this all works? Aside from a heavy dose of macro-magic,
 it's mostly made possible by the devicetree. We'll get back to this, after a
 brief discussion of the project structure and build system.
 
-> [!NOTE] Intermission - SDK installation
+> [!NOTE]
+>
+> ### Intermission - SDK Installation
 >
 > By now the update should be done. We'll need some additional python packages,
 > so let's get these over with

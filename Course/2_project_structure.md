@@ -10,7 +10,9 @@ need a single installation of the (rather large) zephyr operating system source
 code. Within the root of this workspace you'll also need a python virtual
 environment. This is to install the `west` tool discussed later in the course.
 
-> [!NOTE] Intermission - Your first application
+> [!NOTE]
+>
+> ### Intermission - Your First Application
 >
 > You'll now create your first application. From your `ZephyrWorkspace/` create
 > a new directory and call it `Blinky/`. Within this add another directory
@@ -42,7 +44,9 @@ commands defined by Zephyr, including, but not limited to, library
 initialization, source-file inclusion and a command to actually locate the
 zephyr source.
 
-> [!NOTE] Intermission - Exporting the custom CMake commands
+> [!NOTE]
+>
+> ### Intermission - Exporting the Custom CMake Commands
 >
 > We'll need to let CMake know about our custom zephyr commands. This can be
 > done by calling
@@ -87,7 +91,9 @@ command. It knows our zephyr path, and allows us to specify board and
 application. We'll piece it together bit by bit during the course, but the final
 command will be `west build -b nucleo_h753zi blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay`.
 
-> [!NOTE] Intermission - Creating the application CMake definition
+> [!NOTE]
+>
+> ### Intermission - Creating the Application CMake Definition
 >
 > By now the update should be done. We'll need some additional python packages,
 > so let's get these over with
