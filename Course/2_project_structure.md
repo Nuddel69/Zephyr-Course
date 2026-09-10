@@ -130,11 +130,18 @@ hardware you're developing for. This is a devicetree file, separated out of the
 application to avoid the intermingling of hardware and software. This board
 definition specifies all capabilities of an SOC. It specifies the flash area,
 peripheral controllers, timers, memory regions, pin-muxers and everything else.
-It does however, *not*, necessarily enable every feature required by the
+After building, the resulting devicetree file is a result of 2,3 or more dts files.
+
+The SOC devicetree file (.dtsi) can be found in:
+`ZephyrWorkspace/zephyr/dts/arm/st/h7/`.
+The nucleo board devicetree file includes this SOC .dtsi. It can be found in:
+`ZephyrWorkspace/zephyr/boards/st/<your_board>`.
+
+They do however *not* necessarily enable every feature required by the
 application.
 
 In order to avoid polluting the global board definition, we use an override.
-This is application specific and usually placed in a boards directory. This new
+This is application specific and usually placed in a boards directory inside the application folder. This new
 devicetree file, named after the board with a `.overlay` extension, redefines
 any nodes we wish to change, modifying their default properties.
 
