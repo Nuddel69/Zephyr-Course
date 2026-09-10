@@ -30,7 +30,7 @@ way building on the previous sections.
 > #include <zephyr/sleep.h>
 > #include <zephyr/drivers/gpio.h>
 > 
-> int main(int argc, char *argv[]) {
+> int main(void) {
 >   return 0;
 > }
 > ```
@@ -82,7 +82,7 @@ way building on the previous sections.
 >
 > struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(red_led), gpios);
 > 
-> int main(int argc, char *argv[]) {
+> int main(void) {
 >
 >   if (!gpio_is_ready_dt(&led)) {
 >     printk("Error initialising device!\n");
