@@ -41,7 +41,11 @@ way building on the previous sections.
 >
 > We'll start by getting the LED-pin from the devicetree. Luckily for us, the
 > board definition for nucleo_h753zi includes a node label for the on-board
-> LEDs. Choosing the red_led we'll select the `gpios` property and save it to a
+> LEDs.
+> The devicetree file describing your board(.dts) can be found in ZephyrWorkspace/zephyr/boards/<vendor>/<your_board>
+> The vendor for our boards is st, and you either have a nucleo_h753zi or nucleo_h755zi_q board
+> 
+>  Choosing the red_led we'll select the `gpios` property and save it to a
 > struct defined by the API. Add
 >
 > ```c
