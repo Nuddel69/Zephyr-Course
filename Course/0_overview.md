@@ -50,9 +50,9 @@ Or (experimental):
 - What is a driver?
 - Rationale behind separation of API and implementation
 
-### 5. The API
+### 5. The Application
 
-### 6. The Application
+### 6. The API
 
 ### 7. The Implementation
 
