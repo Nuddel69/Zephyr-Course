@@ -37,6 +37,11 @@ goal will always be to produce the correct actuation, based on a given sense.
 > source .venv/bin/activate
 > pip install west 
 > ```
+> ``` windows
+>  ".venv/scripts/activate.bat"
+> ```Powershell
+> ".venv/scripts/Activate.ps1"
+> ```
 >
 > Initialize west using the global zephyr manifest repository and update its
 > dependencies (this will take some time and is the reason we're doing this
