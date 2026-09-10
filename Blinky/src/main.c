@@ -1,10 +1,9 @@
-#include "zephyr/sleep.h"
 #include <zephyr/drivers/gpio.h>
-#include <zephyr/kernel.h>
+#include <zephyr/sleep.h>
 
-// #define LED_NODE DT_ALIAS(led)
+#define LED0_NODE DT_ALIAS(led0)
 
-struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(red_led), gpios);
+struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 
 int main(int argc, char *argv[]) {
   printk("Hello World!\n");

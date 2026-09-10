@@ -52,17 +52,16 @@ Or (experimental):
 
 ### 5. The Application
 
-### 6. The API
+### 6. The Implementation
 
-### 7. The Implementation
-
-### 8. Connecting It All
+### 7. Finished Blinky
 
 - Devicetree & the overlay file
-- Kconfig
-
-### 9. Finished Blinky
-
 - Flashing our application!
+
+## Next Steps
+
+- [Zephyr Docs](https://docs.zephyrproject.org/latest/index.html)
+- [Digikey Zephyr series](https://www.youtube.com/watch?v=mTJ_vKlMS_4&list=PLEBQazB0HUyTmK2zdwhaf8bLwuEaDH-52)
 
 ## Next step: [[./1_introduction.md]]
