@@ -45,13 +45,14 @@ way building on the previous sections.
 > 
 > The devicetree file describing your board(.dts) can be found in
 > `ZephyrWorkspace/zephyr/boards/<vendor>/<your_board>`
-> The vendor for our boards is st, and you either have a nucleo_h753zi or nucleo_h755zi_q board
+> The vendor for our boards is st, and you either have a nucleo_h753zi or nucleo_h755zi_q board.
+> The H755 is dual-core, so shared board nodes (LEDs, button, and so on) are in nucleo_h755zi_q.dtsi, and each core has its own .dts that includes that file. The H753 is single-core and uses one .dts.
 > 
->  Choosing the red_led we'll select the `gpios` property and save it to a
+>  Choosing the green_led we'll select the `gpios` property and save it to a
 > struct defined by the API. Add
 >
 > ```c
-> struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(red_led), gpios);
+> struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(green_led), gpios);
 > ```
 >
 > When enabled in Kconfig, zephyr initialises all device drivers during boot.
@@ -86,7 +87,7 @@ way building on the previous sections.
 > #include <zephyr/sleep.h>
 > #include <zephyr/drivers/gpio.h>
 >
-> struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(red_led), gpios);
+> struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_NODELABEL(green_led), gpios);
 > 
 > int main(void) {
 >
