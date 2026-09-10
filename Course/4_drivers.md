@@ -24,4 +24,4 @@ the application can utilise the *what*'s provided by the API, rather than the
 This is a somewhat fuzzy and vague section, but will hopefully become clearer
 in the next as we move on to
 
-## Next step: [[./5_application.md]]
+## Next step: [application](./5_application.md)

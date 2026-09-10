@@ -36,4 +36,4 @@ the present nodes, meaning you can conditionally choose what
 driver-implementations to compile, changing nothing but the devicetree
 definition.
 
-## Next Step: [[./4_drivers.md]]
+## Next Step: [drivers](./4_drivers.md)

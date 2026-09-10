@@ -137,4 +137,4 @@ brief discussion of the project structure and build system.
 > west sdk install -t arm-zephyr-eabi
 > ```
 
-## Next step: [[./2_project_structure.md]]
+## Next step: [project structure](./2_project_structure.md)

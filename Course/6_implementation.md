@@ -7,4 +7,4 @@ interesting topic and one you undoubtedly will encounter if working with
 zephyr. Refer to the *Next Steps* section of the overview to find some
 resources describing driver implementation.
 
-## Next step: [[./7_blinky.md]]
+## Next step: [blinky](./7_blinky.md)

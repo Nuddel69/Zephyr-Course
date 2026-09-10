@@ -148,4 +148,4 @@ file is called `prj.conf`, lives at the base of our application and contains all
 the Kconfig-options used for our application. Different applications can have
 different configurations, for different flavours of the zephyr kernel.
 
-## Next Step: [[./3_os.md]]
+## Next Step: [os](./3_os.md)

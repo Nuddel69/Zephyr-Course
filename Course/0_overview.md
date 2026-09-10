@@ -64,4 +64,4 @@ Or (experimental):
 - [Zephyr Docs](https://docs.zephyrproject.org/latest/index.html)
 - [Digikey Zephyr series](https://www.youtube.com/watch?v=mTJ_vKlMS_4&list=PLEBQazB0HUyTmK2zdwhaf8bLwuEaDH-52)
 
-## Next step: [[./1_introduction.md]]
+## Next step: [introduction](./1_introduction.md)

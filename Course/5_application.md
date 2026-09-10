@@ -128,4 +128,4 @@ way building on the previous sections.
 > Create a file named `prj.conf` at your application root, and set
 > `CONFIG_GPIO=y`. That's it!
 
-## Next step: [[./6_implementation.md]]
+## Next step: [implementation](./6_implementation.md)
