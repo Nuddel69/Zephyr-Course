@@ -45,7 +45,7 @@ const config: Config = {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/Nuddel69/Zephyr-Course',
+            'https://github.com/Nuddel69/Zephyr-Course/blob/main',
         },
         blog: false,
         theme: {
