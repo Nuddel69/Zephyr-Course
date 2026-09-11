@@ -80,7 +80,7 @@ const config: Config = {
           label: 'Intro',
         },
         {
-          href: 'https://github.com/OrbitNTNU',
+          href: 'https://github.com/Nuddel69/Zephyr-Course',
           label: 'GitHub',
           position: 'right',
         },

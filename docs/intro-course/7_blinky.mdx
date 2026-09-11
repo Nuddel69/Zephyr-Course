@@ -12,7 +12,7 @@ led being connected. Instead, we would like to use what's called an alias. To do
 application declare that it's referring to an LED called `led0`, and the
 devicetree is responsible for deciding what LED gets this alias. This is highly project specific, and thus illadviced to add to the global board definition. Instead, we'll make an overlay.
 
-:::tip[Intermission - a Slight Adjustment, Adding the Overlay]
+:::info[Intermission - a Slight Adjustment, Adding the Overlay]
 
 Start by adding a new file in your applications `boards/` directory and call
 it `nucleo_h753zi.overlay` or `nucleo_h755zi_q_stm32h755x_m7.overlay` . This file will override the global board, and

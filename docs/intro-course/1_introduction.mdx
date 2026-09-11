@@ -11,13 +11,16 @@ environmental and inertial measurement to command reception and mission status.
 The actuators include ADCS and heating, as well as beacons and comms. The end
 goal will always be to produce the correct actuation, based on a given sense.
 
-:::tip[Intermission - Workspace Setup and Blinky Demonstration]
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::info[Intermission - Workspace Setup and Blinky Demonstration]
 
  During the course of this… course we will develop a very simple application -
  the blinky. A staple in the world of embedded programming, this simple
  program is a great way to apply several of the concepts we'll touch on today.
  If you intend to follow along, now is a good time to set up your zephyr
- workspace. Don't ponder to hard on the meaning of this for now, we'll get
+ workspace. Don't ponder too hard on the meaning of this for now, we'll get
  back to it.
 
  First create a directory where you'll keep your zephyr projects. We'll call
@@ -27,28 +30,29 @@ goal will always be to produce the correct actuation, based on a given sense.
  mkdir ZephyrWorkspace
  ```
 
- From this directory, create a python virtual environment and install west
+ From this directory, create a python virtual environment and source it
 
  ```bash
  cd ZephyrWorkspace
  python3 -m venv .venv
  ```
 
- **Linux/MacOS**:
-
+<Tabs>
+  <TabItem value="linux" label="Linux/MacOS">
  ```bash
  source .venv/bin/activate
  ```
-
- **Windows**:
-
- ```
- .venv/scripts/activate.bat
- ```
-
- ```powershell
- .venv/scripts/Activate.ps1
- ```
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    ```
+    .venv/scripts/activate.bat
+    ```
+    ```powershell
+    .venv/scripts/Activate.ps1
+    ```
+  </TabItem>
+</Tabs>
+---
 
  Then install west
 
@@ -122,7 +126,7 @@ You might wonder how this all works? Aside from a heavy dose of macro-magic,
 it's mostly made possible by the devicetree. We'll get back to this, after a
 brief discussion of the project structure and build system.
 
-:::tip[Intermission - SDK Installation]
+:::info[Intermission - SDK Installation]
 
  By now the update should be done. We'll need some additional python packages,
  so let's get these over with
