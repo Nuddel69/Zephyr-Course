@@ -12,36 +12,36 @@ led being connected. Instead, we would like to use what's called an alias. To do
 application declare that it's referring to an LED called `led0`, and the
 devicetree is responsible for deciding what LED gets this alias. This is highly project specific, and thus illadviced to add to the global board definition. Instead, we'll make an overlay.
 
-> [!NOTE]
->
-> ### Intermission - a Slight Adjustment, Adding the Overlay
->
-> Start by adding a new file in your applications `boards/` directory and call
-> it `nucleo_h753zi.overlay` or `nucleo_h755zi_q_stm32h755x_m7.overlay` . This file will override the global board, and
-> such we only need to specify what we wish to change.
->
-> Aliases are part of the root node in the devicetree, so we'll specify this,
-> as well as a reference to the node we wish to assign the alias
->
-> ```
-> / {
->  aliases {
->   led0 = &green_led;
->  };
-> };
-> ```
->
-> Now to modify our application to make use of this new alias. Add a new line, just before your gpio_dt_spec assignment
->
-> ```c
-> #define LED0_NODE DT_ALIAS(led0)
-> ```
->
-> And modify the spec to fetch this new macro instead
->
-> ```c
-> static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
-> ```
+:::tip[Intermission - a Slight Adjustment, Adding the Overlay]
+
+Start by adding a new file in your applications `boards/` directory and call
+it `nucleo_h753zi.overlay` or `nucleo_h755zi_q_stm32h755x_m7.overlay` . This file will override the global board, and
+such we only need to specify what we wish to change.
+
+Aliases are part of the root node in the devicetree, so we'll specify this,
+as well as a reference to the node we wish to assign the alias
+
+```
+/ {
+ aliases {
+  led0 = &green_led;
+ };
+};
+```
+
+Now to modify our application to make use of this new alias. Add a new line, just before your gpio_dt_spec assignment
+
+```c
+#define LED0_NODE DT_ALIAS(led0)
+```
+
+And modify the spec to fetch this new macro instead
+
+```c
+static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+```
+
+:::
 
 ## Build and flash
 
@@ -50,11 +50,12 @@ Now that you've got a finished, truly portable blinky, it's time to compile it! 
 ```
 west build --board nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay
 ```
+
 or
+
 ```
 west build -b nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
 ```
-
 
 If everything compiles, you're ready to flash! Again using `west`, supply the runner (stm32cubeprogrammer should be automatically detected) and connect your board!
 

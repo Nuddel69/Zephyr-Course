@@ -11,46 +11,61 @@ environmental and inertial measurement to command reception and mission status.
 The actuators include ADCS and heating, as well as beacons and comms. The end
 goal will always be to produce the correct actuation, based on a given sense.
 
-> [!NOTE]
->
-> ### Intermission - Workspace Setup and Blinky Demonstration
->
-> During the course of this… course we will develop a very simple application -
-> the blinky. A staple in the world of embedded programming, this simple
-> program is a great way to apply several of the concepts we'll touch on today.
-> If you intend to follow along, now is a good time to set up your zephyr
-> workspace. Don't ponder to hard on the meaning of this for now, we'll get
-> back to it.
->
-> First create a directory where you'll keep your zephyr projects. We'll call
-> this `ZephyrWorkspace/`.
->
-> ```bash
-> mkdir ZephyrWorkspace
-> ```
->
-> From this directory, create a python virtual environment and install west
->
-> ```bash
-> cd ZephyrWorkspace
-> python3 -m venv .venv
-> source .venv/bin/activate
-> pip install west 
-> ```
-> ``` windows
->  ".venv/scripts/activate.bat"
-> ```Powershell
-> ".venv/scripts/Activate.ps1"
-> ```
->
-> Initialize west using the global zephyr manifest repository and update its
-> dependencies (this will take some time and is the reason we're doing this
-> now)
->
-> ```bash
-> west init
-> west update
-> ```
+:::tip[Intermission - Workspace Setup and Blinky Demonstration]
+
+ During the course of this… course we will develop a very simple application -
+ the blinky. A staple in the world of embedded programming, this simple
+ program is a great way to apply several of the concepts we'll touch on today.
+ If you intend to follow along, now is a good time to set up your zephyr
+ workspace. Don't ponder to hard on the meaning of this for now, we'll get
+ back to it.
+
+ First create a directory where you'll keep your zephyr projects. We'll call
+ this `ZephyrWorkspace/`.
+
+ ```bash
+ mkdir ZephyrWorkspace
+ ```
+
+ From this directory, create a python virtual environment and install west
+
+ ```bash
+ cd ZephyrWorkspace
+ python3 -m venv .venv
+ ```
+
+ **Linux/MacOS**:
+
+ ```bash
+ source .venv/bin/activate
+ ```
+
+ **Windows**:
+
+ ```
+ .venv/scripts/activate.bat
+ ```
+
+ ```powershell
+ .venv/scripts/Activate.ps1
+ ```
+
+ Then install west
+
+ ```bash
+ pip install west 
+ ```
+
+ Initialize west using the global zephyr manifest repository and update its
+ dependencies (this will take some time and is the reason we're doing this
+ now)
+
+ ```bash
+ west init
+ west update
+ ```
+
+:::
 
 ## What's an RTOS?
 
@@ -62,19 +77,6 @@ tasks at once. The *real time* modifier signifies another level of fine-grained
 control of this *scheduling*, allowing for precise timers, recurring tasks,
 priority-based execution. This means we can set a task to be executed once
 every *n* seconds/milliseconds and the RTOS will manage it for us.
-
-## Our (Programming) Language of Choice
-
-> [!WARNING]
->
-> ### FIXME
->
-> This section either needs a lot of work, or should be
-> dropped all together
-
-Since we're working with hardware, the language needs to be able to accurately
-describe the order and manipulation of bits, memory structure, register mapping
-and . C is low-level enough that we're able to
 
 ## Complicating a Simple Task - Why Zephyr?
 
@@ -120,26 +122,24 @@ You might wonder how this all works? Aside from a heavy dose of macro-magic,
 it's mostly made possible by the devicetree. We'll get back to this, after a
 brief discussion of the project structure and build system.
 
-> [!NOTE]
->
-> ### Intermission - SDK Installation
->
-> By now the update should be done. We'll need some additional python packages,
-> so let's get these over with
->
-> From the `ZephyrWorkspace/`
->
-> ```bash
-> pip install -r zephyr/scripts/requirements.txt
-> ```
->
-> In addition to the zephyr operating system itself, we need some extra tools
-> provided by the CPU manufacturers. These are > called a *software development
-> kit (SDK)* and we'll make use of the one provided for ARM processors.
->
-> ```bash
-> cd zephyr
-> west sdk install -t arm-zephyr-eabi
-> ```
+:::tip[Intermission - SDK Installation]
 
-## Next step: [project structure](./2_project_structure.md)
+ By now the update should be done. We'll need some additional python packages,
+ so let's get these over with
+
+ From the `ZephyrWorkspace/`
+
+ ```bash
+ pip install -r zephyr/scripts/requirements.txt
+ ```
+
+ In addition to the zephyr operating system itself, we need some extra tools
+ provided by the CPU manufacturers. These are > called a *software development
+ kit (SDK)* and we'll make use of the one provided for ARM processors.
+
+ ```bash
+ cd zephyr
+ west sdk install -t arm-zephyr-eabi
+ ```
+
+:::

@@ -10,14 +10,14 @@ need a single installation of the (rather large) zephyr operating system source
 code. Within the root of this workspace you'll also need a python virtual
 environment. This is to install the `west` tool discussed later in the course.
 
-> [!NOTE]
->
-> ### Intermission - Your First Application
->
-> You'll now create your first application. From your `ZephyrWorkspace/` create
-> a new directory and call it `Blinky/`. Within this add another directory
-> called `src` and one called `boards`. This will be the foundation for
-> everything we do during the course.
+:::tip[Intermission - Your First Application]
+
+ You'll now create your first application. From your `ZephyrWorkspace/` create
+ a new directory and call it `Blinky/`. Within this add another directory
+ called `src` and one called `boards`. This will be the foundation for
+ everything we do during the course.
+
+:::
 
 ### Modules
 
@@ -44,16 +44,16 @@ commands defined by Zephyr, including, but not limited to, library
 initialization, source-file inclusion and a command to actually locate the
 zephyr source.
 
-> [!NOTE]
->
-> ### Intermission - Exporting the Custom CMake Commands
->
-> We'll need to let CMake know about our custom zephyr commands. This can be
-> done by calling
->
-> ```bash
-> west zephyr-export
-> ```
+:::tip[Intermission - Exporting the Custom CMake Commands]
+
+ We'll need to let CMake know about our custom zephyr commands. This can be
+ done by calling
+
+ ```bash
+ west zephyr-export
+ ```
+
+:::
 
 CMake, while a complex topic on its own, can be boiled down to a basic purpose:
 locate source and header files, decide which to use, set some preprocessor
@@ -89,39 +89,38 @@ build` wraps CMake, and we'll look into the other in a later section (`west flas
 The build subcommand is almost like an alias for a long and complicated CMake
 command. It knows our zephyr path, and allows us to specify board and
 application. We'll piece it together bit by bit during the course, but the final
-command will be `west build -b nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay` 
+command will be `west build -b nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay`
 or `west build -b nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay`
 
-> [!NOTE]
->
-> ### Intermission - Creating the Application CMake Definition
->
-> By now the update should be done. We'll need some additional python packages,
-> so let's get these over with
->
-> In your application directory (`Blinky/`) create a new file and call it
-> `CMakeLists.txt` (both spelling and case are important here). In this file
-> you'll add the four aforementioned lines. First define the minimum CMake
-> version by adding `CMAKE_MINIMUM_REQUIRED(VERSION 3.20.0)`.
->
-> Next we'll tell CMake to include zephyr, and that it'll add some stuff for us.
-> Add the line `find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})` next.
-> This might seem like magic at first: how does CMake know of zephyr? The key is
-> environment variables. These are special variables visible to commands
-> launched from the terminal, usually containing paths. One such environment
-> variable is the `ZEPHYR_BASE` variable. This is defined to be the location of
-> your current zephyr workspace, which, as we know, contains the zephyr source
-> (as well as a script configuring CMake). West, like we just talked about,
-> adds several environment-variables to the execution. One of these is the
-> `ZEPHYR_BASE`.
->
-> After finding zephyr we'll define our project. Add the line `project(blinky)`
-> to create a scope for our variables.
->
-> Finally, we'll add the sources. We don't have any source files yet, but we'll
-> add what will be our entry point anyway. We'll link our future C source to
-> the app target created by zephyr, by adding `target_sources(app PRIVATE
-> src/main.c)`.
+:::tip[Intermission - Creating the Application CMake Definition]
+
+By now the update should be done. We'll need some additional python packages,
+so let's get these over with
+
+In your application directory (`Blinky/`) create a new file and call it
+`CMakeLists.txt` (both spelling and case are important here). In this file
+you'll add the four aforementioned lines. First define the minimum CMake
+version by adding `CMAKE_MINIMUM_REQUIRED(VERSION 3.20.0)`.
+
+Next we'll tell CMake to include zephyr, and that it'll add some stuff for us.
+Add the line `find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})` next.
+This might seem like magic at first: how does CMake know of zephyr? The key is
+environment variables. These are special variables visible to commands
+launched from the terminal, usually containing paths. One such environment
+variable is the `ZEPHYR_BASE` variable. This is defined to be the location of
+your current zephyr workspace, which, as we know, contains the zephyr source
+(as well as a script configuring CMake). West, like we just talked about,
+adds several environment-variables to the execution. One of these is the
+`ZEPHYR_BASE`.
+
+After finding zephyr we'll define our project. Add the line `project(blinky)`
+to create a scope for our variables.
+
+Finally, we'll add the sources. We don't have any source files yet, but we'll
+add what will be our entry point anyway. We'll link our future C source to
+the app target created by zephyr, by adding `target_sources(app PRIVATE
+src/main.c)`.
+:::
 
 ## Boards
 
@@ -155,5 +154,3 @@ them persistent, we'll add them to an application-wide configuration file. This
 file is called `prj.conf`, lives at the base of our application and contains all
 the Kconfig-options used for our application. Different applications can have
 different configurations, for different flavours of the zephyr kernel.
-
-## Next Step: [os](./3_os.md)
