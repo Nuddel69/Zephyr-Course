@@ -15,7 +15,21 @@ devicetree is responsible for deciding what LED gets this alias. This is highly 
 :::info[Intermission - a Slight Adjustment, Adding the Overlay]
 
 Start by adding a new file in your applications `boards/` directory and call
-it `nucleo_h753zi.overlay` or `nucleo_h755zi_q_stm32h755x_m7.overlay` . This file will override the global board, and
+it
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="linux" label="Nucleo H753ZI">
+    `nucleo_h753zi.overlay`
+  </TabItem>
+  <TabItem value="windows" label="Nucleo H755ZI">
+    `nucleo_h755zi_q_stm32h755x_m7.overlay`
+  </TabItem>
+</Tabs>
+
+This file will override the global board, and
 such we only need to specify what we wish to change.
 
 Aliases are part of the root node in the devicetree, so we'll specify this,
@@ -47,15 +61,19 @@ static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 
 Now that you've got a finished, truly portable blinky, it's time to compile it! Using the `west` metatool, you need to supply the board and the application. CMake needs to know the overlay file, which can be achieved by passing two dashes to `west`. The complete build command should be
 
-```
+<Tabs>
+  <TabItem value="linux" label="Nucleo H753ZI">
+    ```
 west build --board nucleo_h753zi Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h753zi.overlay
-```
-
-or
-
-```
-west build -b nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
-```
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Nucleo H755ZI">
+    ```
+west build --board nucleo_h755zi_q/stm32h755xx/m7 Blinky -- -DDTC_OVERLAY_FILE=boards/nucleo_h755zi_q_stm32h755xx_m7.overlay
+    ```
+  </TabItem>
+</Tabs>
+---
 
 If everything compiles, you're ready to flash! Again using `west`, supply the runner (stm32cubeprogrammer should be automatically detected) and connect your board!
 
