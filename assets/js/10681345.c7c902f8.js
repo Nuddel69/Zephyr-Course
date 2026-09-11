@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzephyr_course=self.webpackChunkzephyr_course||[]).push([["392"],{561(e){e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Introduction to Zephyr","slug":"/category/introduction-to-zephyr","permalink":"/category/introduction-to-zephyr","sidebar":"tutorialSidebar","navigation":{"next":{"title":"Overview","permalink":"/"}}}}')}}]);
