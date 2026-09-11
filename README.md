@@ -2,6 +2,7 @@
 
 This repository contains both the course material and the finished blinky application. The application is meant as a reference in case of issues, *not* a replacement for following the course!
 
+Find the course at <https://nuddel69.github.io/Zephyr-Course/>, or start reading at `docs/intro-course/0_overview.mdx`
 The course begins at [overview](Course/0_overview.md)
 
 The blinky application can be moved to your zephyr workspace and built with
